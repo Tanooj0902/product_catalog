@@ -28,7 +28,7 @@ class Api::V1::ProductsController < Api::V1::BaseController
   end
 
   def destroy
-    @product.destroy
+    @product.destroy!
     head :no_content
   end
 
