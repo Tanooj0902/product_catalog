@@ -1,0 +1,22 @@
+en:
+  api:
+    errors:
+      record_not_found_error:
+        code: '404'
+        message: "%{klass} not found"
+        status: "not_found"
+
+      record_invalid_error:
+        code: '400'
+        message: '%{instance_errors}'
+        status: "unprocessable_entity"
+
+      not_found_error:
+        code: '404'
+        message: 'Resource not found'
+        status: 'not_found'
+
+      params_error:
+        code: '422'
+        message: "%{message}"
+        status: 'unprocessable_entity'

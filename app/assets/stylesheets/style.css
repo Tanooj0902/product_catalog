@@ -1,0 +1,17 @@
+.new-product-btn {
+  margin: 10px 0 10px 10px;
+}
+
+.product-list {
+  overflow-y: scroll;
+  height: 33rem;
+  
+  .product-card:hover {
+    background-color: #f3f3f3;
+    cursor: pointer;
+  }
+}
+
+.detail-block {
+  margin-top: 58px;
+}

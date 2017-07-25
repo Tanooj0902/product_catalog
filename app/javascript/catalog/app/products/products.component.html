@@ -1,0 +1,35 @@
+<div class="row">
+  <toaster-container></toaster-container>
+  <div class="col-md-4">
+    <div class="col-md-12 new-product-btn">
+      <button type="button" class="btn btn-primary" (click)="productModal.showNewProductModal()">New Product</button>
+    </div>
+    <div class="card">
+      <div class="card-block" *ngIf="!products">
+        <div class="card-title">
+          No Product Found
+        </div>
+      </div>
+    </div>
+    <div class="product-list" infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false">
+      <div class="card card-block product-card" *ngFor="let product of products" (click)="showProductDetail(product)">
+        <strong class="card-title">Name: {{product.name}}</strong>
+        <p class="card-subtitle">Price: {{product.price | currency: product.price_currency_code:true }}</p>
+        <p class="card-text">Description: {{product.description}}</p>
+      </div>
+    </div>
+    <app-add-edit-product #productModal (resetList)="resetList()" [(updatedProduct)]='product'></app-add-edit-product>
+  </div>
+  
+  <div class="col-md-8 detail-block">
+    <div *ngIf="product" class="card">
+      <div class="card-header">{{product.name}}</div>
+      <div class="card-block">
+        <p>{{product.price | currency: product.price_currency_code:true }}</p>
+        <p>{{product.description}}</p>
+        <button type="button" class="btn btn-primary" (click)="productModal.showEditProductModal(product)">Edit</button>
+        <button type="button" class="btn btn-danger" (click)="destroyProduct(product)">Destroy</button>
+      </div>
+    </div>
+  </div>
+</div>
